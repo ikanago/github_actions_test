@@ -12,6 +12,7 @@ on:
 
 jobs:
   test:
+    if: ${{ github.event_type == 'push' || github.event_type == 'workflow_dispatch' || github.event.review.state == 'approved' }}
     runs-on: 'ubuntu-20.04'
     steps:
       - run: echo 'Hello'
