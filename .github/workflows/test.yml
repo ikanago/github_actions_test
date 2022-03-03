@@ -16,5 +16,5 @@ jobs:
     steps:
       - run: echo '${{ toJson(github) }}'
       - run: echo 'Hello'
-        if: ${{ github.event_type == 'push' || github.event_type == 'workflow_dispatch' || github.event.review.state == 'approved' }}
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved' }}
 
