@@ -14,5 +14,7 @@ jobs:
   test:
     runs-on: 'ubuntu-20.04'
     steps:
+      - run: echo '${{ toJson(github) }}'
       - run: echo 'Hello'
+        if: ${{ github.event_name == 'push' || github.event_name == 'workflow_dispatch' || github.event.review.state == 'approved' }}
 
